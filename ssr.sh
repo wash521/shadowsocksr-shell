@@ -609,16 +609,16 @@ Debian_apt(){
 # 下载 ShadowsocksR
 Download_SSR(){
         cd "/usr/local/"
-        wget -N --no-check-certificate "https://github.com//wash521/shadowsocksr-py3/archive/main.zip"
+        wget -N --no-check-certificate "https://github.com/wash521/shadowsocksr-py3/archive/main.zip"
         #git config --global http.sslVerify false
         #env GIT_SSL_NO_VERIFY=true git clone -b manyuser https://github.com/ToyoDAdoubiBackup/shadowsocksr.git
         #[[ ! -e ${ssr_folder} ]] && echo -e "${Error} ShadowsocksR服务端 下载失败 !" && exit 1
-        [[ ! -e "manyuser.zip" ]] && echo -e "${Error} ShadowsocksR服务端 压缩包 下载失败 !" && rm -rf manyuser.zip && exit 1
-        unzip "manyuser.zip"
-        [[ ! -e "/usr/local/shadowsocksr-manyuser/" ]] && echo -e "${Error} ShadowsocksR服务端 解压失败 !" && rm -rf manyuser.zip && exit 1
-        mv "/usr/local/shadowsocksr-manyuser/" "/usr/local/shadowsocksr/"
+        [[ ! -e "main.zip" ]] && echo -e "${Error} ShadowsocksR服务端 压缩包 下载失败 !" && rm -rf manyuser.zip && exit 1
+        unzip "main.zip"
+        [[ ! -e "/usr/local/shadowsocksr-py3-main/" ]] && echo -e "${Error} ShadowsocksR服务端 解压失败 !" && rm -rf manyuser.zip && exit 1
+        mv "/usr/local/shadowsocksr-py3-main/" "/usr/local/shadowsocksr/"
         [[ ! -e "/usr/local/shadowsocksr/" ]] && echo -e "${Error} ShadowsocksR服务端 重命名失败 !" && rm -rf manyuser.zip && rm -rf "/usr/local/shadowsocksr-manyuser/" && exit 1
-        rm -rf manyuser.zip
+        #rm -rf manyuser.zip
         [[ -e ${config_folder} ]] && rm -rf ${config_folder}
         mkdir ${config_folder}
         [[ ! -e ${config_folder} ]] && echo -e "${Error} ShadowsocksR配置文件的文件夹 建立失败 !" && exit 1
